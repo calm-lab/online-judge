@@ -17,3 +17,27 @@ int main(){
     }
     cout << (d[n][0]+d[n][1]+d[n][2])%9901 << '\n';
 }
+/* 동물원 문제 더 어렵게 풀기.
+i-1줄을 건너뛰고 i-2에 동물을 넣을 수 있다.
+D[i] = 세로 크기가 i인 동물원을 채우는 방법의 수, 단 i번째 줄에는 동물이 있어야 한다.
+#include <iostream>
+using namespace std;
+int d[100001];
+int s[100001];
+int main() {
+    int n;
+    cin >> n;
+    d[0] = 1;
+    s[0] = 1;
+    d[1] = 2;
+    s[1] = d[0] + d[1];
+    for (int i=2; i<=n; i++) {
+        d[i] = d[i-1] + 2*s[i-2];
+        s[i] = s[i-1] + d[i];
+        d[i] = d[i] % 9901;
+        s[i] = s[i] % 9901;
+    }
+    cout << s[n] << '\n';
+    return 0;
+}
+*/
