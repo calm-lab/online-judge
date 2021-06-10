@@ -28,7 +28,7 @@ int main(){
             ans.push_back(current);
         }while (next_permutation(c.begin(), c.end()));
 
-        //sort(ans.begin(), ans.end());
+        sort(ans.begin(), ans.end());
         for(auto &v : ans){
             for(int i = 0; i < v.size(); i++){
                 cout << v[i] << ' ';
