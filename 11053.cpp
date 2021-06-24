@@ -23,5 +23,7 @@ int main(){
             ans = d[i];
         }
     }
+    //vector<int> d(n); //d를 벡터로 선언했을 경우. 
+    //cout << *max_element(d.begin(),d.end()) << '\n';
     cout << ans << '\n';
 }

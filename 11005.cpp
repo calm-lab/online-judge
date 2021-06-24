@@ -49,7 +49,7 @@ int main() {
         }
         n /= b;
     }
-    reverse(ans.begin(),ans.end());
+    reverse(ans.begin(),ans.end());//뒤집기 함수
     cout << ans << '\n';
     return 0;
 }

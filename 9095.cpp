@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 int d[11];
@@ -23,6 +24,7 @@ int main(){
         cout << d[n] << '\n';
     }
 }
+*/
 /* N중 for문..
 이런 방식으로 코드를 작성할 일이 거의 없음...
 
@@ -85,6 +87,33 @@ int main() {
             }
         }
         printf("%d\n",ans);
+    }
+    return 0;
+}
+*/
+/*브루트포스 - 재귀 
+#include <iostream>
+using namespace std;
+int go(int sum, int goal) {
+    if (sum > goal) {
+        return 0;
+    }
+    if (sum == goal) {
+        return 1;
+    }
+    int now = 0;
+    for (int i=1; i<=3; i++) {
+        now += go(sum+i, goal);
+    }
+    return now;
+}
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        cout << go(0, n) << '\n';
     }
     return 0;
 }

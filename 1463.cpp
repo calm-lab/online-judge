@@ -2,8 +2,8 @@
 using namespace std;
 int d[1000001];
 int go(int n){ //Top-down 방식은 재귀호출로 구현한다.
-    if (n == 1) return 0;
-    if (d[n] > 0) return d[n];
+    if (n == 1) return 0;//1을 1로 만드는 부분은 연산을 사용하지 않아도 되므로, 0
+    if (d[n] > 0) return d[n]; //메모이제이션
     d[n] = go(n-1) + 1; //d[n]: n을 1로 만드는데 필요한 최소 연산 횟수를 저장.
     if(n % 2 == 0){
         int temp = go(n/2) + 1;
