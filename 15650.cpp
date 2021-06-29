@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 int a[10];
+//1번째 방법
 void go(int index, int start, int n, int m){//start는 수열을 뽑을 시작지점을 지정
     if(index == m){
         for(int i = 0; i < m; i++){
@@ -31,7 +32,7 @@ using namespace std;
 int a[10]; //index라는 수를 결과 O/X로 결정
 //index: 자연수, selected: 지금까지 선택한 수의 개수
 void go(int index, int selected, int n, int m) {
-    if (selected == m) {
+    if (selected == m) { //수열 출력
         for (int i=0; i<m; i++) {
             cout << a[i] << ' ';
         }
@@ -39,10 +40,12 @@ void go(int index, int selected, int n, int m) {
         return;
     }
     if (index > n) return;//index가 n보다 클 경우 함수를 종료
+    //[1] 1이 먼저 포함되는 것부터 처리해야하기 때문에 [2]부터 작성하는게 아니라 포함되는 코드 부분부터 작성을 해줘야한다. 
     a[selected] = index; //1. 선택하는 경우에 선택한 수의 개수번째에 값을 저장한다.
-    go(index+1, selected+1, n, m);
-    a[selected] = 0; //2. 선택하지 않는 경우에는 0을 저장하도록 한다
-    go(index+1, selected, n, m);
+    go(index+1, selected+1, n, m);//index를 결과에 추가하는 부분
+    //[2] 
+    a[selected] = 0; //2. 선택하지 않는 경우에는 0을 저장하도록 한다.
+    go(index+1, selected, n, m); //index를 결과에 추가 안함
 }
 int main() {
     int n, m;

@@ -21,7 +21,7 @@ int main(){
         do{
             vector<int> current;
             for(int i = 0; i < k; i++){
-                if(c[i] == 1){
+                if(c[i] == 1){//고른것들을 배열로 따로 추려낸다.
                      current.push_back(a[i]);
                 }
             }

@@ -13,7 +13,7 @@ void go(int index, int start, int n, int m){
     }
     for(int i = start; i <= n; i++){
         a[index] = i;
-        go(index + 1, i, n, m);
+        go(index + 1, i, n, m); //중복이 가능하므로, 그냥 i가 들어가게 된다.
     }
 }
 int main(){
@@ -39,10 +39,12 @@ void go(int index, int selected, int n, int m) {
         return;
     }
     if (index > n) return;
-    for (int i=m-selected; i>=1; i--) {
+    //[1] 선택하는 경우, 몇개를 선택 할지 결정해야한다.
+    for (int i=m-selected; i>=1; i--) {//감소하는 순으로 수의 개수를 정한 이유 : 오름차순때문
         cnt[index] = i;//index(자연수)를 i번 포함하므로 i를 cnt[index]에 저장
         go(index+1, selected+i, n, m);//선택한 갯수는 기존의 선택한 수의 갯수에다 i번이라는 횟수를 더함
     }
+    //[2] 선택하지 않는 경우
     cnt[index] = 0;//선택을 안하는 경우에는 0으로 저장
     go(index+1, selected, n, m);
 }

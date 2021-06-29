@@ -91,7 +91,7 @@ int main() {
     return 0;
 }
 */
-/*브루트포스 - 재귀 
+/*브루트포스 - 재귀 함수
 #include <iostream>
 using namespace std;
 int go(int sum, int goal) {
@@ -111,7 +111,7 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
+        int n; //n을 1,2,3의 합으로 나타내는 방법의 수 구하기
         cin >> n;
         cout << go(0, n) << '\n';
     }
